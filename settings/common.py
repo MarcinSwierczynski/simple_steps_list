@@ -109,11 +109,14 @@ INSTALLED_APPS = (
     'django.contrib.admin',
     # Uncomment the next line to enable admin documentation:
     # 'django.contrib.admindocs',
+    'south',
+    'step',
 )
 
 ##############################################################################
 # Local Settings
 #
+#noinspection PyUnresolvedReferences
 from settings.local import *
 
 # A sample logging configuration. The only tangible logging
