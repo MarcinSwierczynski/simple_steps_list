@@ -3,7 +3,7 @@
 import os, sys
 
 APPLICATION_ROOT = os.path.dirname(__file__) + "/../"
-sys.path.append('%s/apps' % APPLICATION_ROOT)
+sys.path.append('{0}/apps'.format(APPLICATION_ROOT))
 
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
@@ -39,7 +39,7 @@ USE_L10N = True
 
 # Absolute filesystem path to the directory that will hold user-uploaded files.
 # Example: "/home/media/media.lawrence.com/media/"
-MEDIA_ROOT = '../'
+MEDIA_ROOT = '{0}/site_media'.format(APPLICATION_ROOT)
 
 # URL that handles the media served from MEDIA_ROOT. Make sure to use a
 # trailing slash.
@@ -96,7 +96,9 @@ MIDDLEWARE_CLASSES = (
 
 ROOT_URLCONF = 'simple_steps_list.urls'
 
-TEMPLATE_DIRS = ("%s/templates" % APPLICATION_ROOT,)
+TEMPLATE_DIRS = (
+    "{0}/templates".format(APPLICATION_ROOT),
+)
 
 INSTALLED_APPS = (
     'django.contrib.auth',
