@@ -1,6 +1,6 @@
 [
     {
-        "pk": 1, 
+        "pk": "4e4693019649a608ad000000", 
         "model": "step.activity", 
         "fields": {
             "name": "Programming"
