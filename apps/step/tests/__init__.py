@@ -1,2 +1,1 @@
-from models import ActivityTestCase
-from views import ActivityTestCase
+

@@ -3,5 +3,8 @@
 {% block title %}Steps List{% endblock %}
 
 {% block content %}
-    <p>{{ activity }}</p>
+    <div id="steps-list">
+        <ul id="steps"></ul>
+        <label for="new-step">New step</label> <input type="text" name="step" id="new-step" />
+    </div>
 {% endblock %}

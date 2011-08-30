@@ -5,9 +5,9 @@ from step.models import Activity
 class ActivityTestCase(TestCase):
     fixtures = ['steps']
 
-#    def setUp(self):
-#        self.activity = Activity(name='Programming')
-#        self.activity.save()
+    #    def setUp(self):
+    #        self.activity = Activity(name='Programming')
+    #        self.activity.save()
 
     def test_list_activities(self):
         self.client.login(username='admin', password='mars')
