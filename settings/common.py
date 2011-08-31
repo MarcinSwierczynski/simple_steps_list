@@ -116,6 +116,7 @@ INSTALLED_APPS = (
     'django_mongodb_engine',
     'djangotoolbox',
     'piston',
+    'tools',
     'step',
 )
 
