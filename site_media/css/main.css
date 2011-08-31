@@ -1,0 +1,31 @@
+ul {
+    list-style: none;
+}
+
+li.activity {
+    border-bottom: 1px solid #CCCCCC;
+    cursor: move;
+    font-size: 24px;
+    padding: 15px 20px 15px 0;
+    position: relative;
+}
+
+li.activity input.activity-input {
+    display: none;
+}
+
+li.editing input.activity-input {
+    border: 1px solid #999999;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2) inset;
+    display: block;
+    font-family: inherit;
+    font-size: 24px;
+    line-height: 1.4em;
+    outline: medium none;
+    padding: 6px;
+    width: 466px;
+}
+
+li.editing div.activity-content {
+    display: none;
+}
