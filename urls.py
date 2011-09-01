@@ -22,5 +22,8 @@ urlpatterns = patterns('',
 
     (r'^accounts/login/$', 'django.contrib.auth.views.login'),
 
-    (r'^step/', include('step.urls'))
+    (r'^step/', include('step.urls')),
+
+    #entry point
+    (r'^$', include('tools.urls'))
 )
