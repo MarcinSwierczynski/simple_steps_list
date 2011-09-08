@@ -1,16 +1,13 @@
 var ActivitiesView = Backbone.View.extend({
-    el: $('#steps-list'),
-
     events: {
         'keypress #new-step': 'createOnEnter'
     },
 
     initialize: function() {
-        this.input = this.$('#new-step');
         this.activities = this.options.activities;
 
-        this.activities.bind('add', this.addOne, this);
-        this.activities.bind('reset', this.addAll, this);
+        this.activities.bind('add', this.render, this);
+        this.activities.bind('reset', this.render, this);
     },
 
     addAll: function() {
@@ -23,14 +20,19 @@ var ActivitiesView = Backbone.View.extend({
     },
 
     createOnEnter: function(e) {
-        var newStepText = this.input.val();
+        this.input = this.$('#new-step');
+        var newStepText = this.input.val().trim();
         if (!newStepText || e.keyCode != 13) return;
 
-        var newStep = new Activity({'name': newStepText});
-        this.activities.add(newStep);
-        newStep.save();
+        this.activities.create({'name': newStepText});
 
         this.input.val('');
+    },
+
+    render: function() {
+        $(this.el).html(ich.activities());
+        this.addAll();
+        return this;
     }
 
 });

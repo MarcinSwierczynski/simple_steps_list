@@ -1,16 +1,13 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <div id="steps-list">
-        <ul id="steps"></ul>
-        <label for="new-step">New step</label> <input type="text" name="step" id="new-step"/>
-        <a href="#activities">Show previously saved activities</a>
-    </div>
-
     <script type="text/javascript" src="/site_media/js/collections/activities.js"></script>
     <script type="text/javascript" src="/site_media/js/views/activity_view.js"></script>
     <script type="text/javascript" src="/site_media/js/views/activities_view.js"></script>
+    <script type="text/javascript" src="/site_media/js/views/about_view.js"></script>
     <script type="text/javascript" src="/site_media/js/routers/main_router.js"></script>
+
+    <div id="content"></div>
 
     <script type="text/javascript">
 

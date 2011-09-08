@@ -14,6 +14,10 @@ li.activity input.activity-input {
     display: none;
 }
 
+div.activity-content {
+    display: inline;
+}
+
 li.editing input.activity-input {
     border: 1px solid #999999;
     box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2) inset;
@@ -26,6 +30,22 @@ li.editing input.activity-input {
     width: 466px;
 }
 
+li.activity input.error {
+    border: 2px solid #ff0000;
+}
+
 li.editing div.activity-content {
     display: none;
+}
+
+li.activity span.delete-activity {
+    display: none;
+}
+
+li.editing span.delete-activity {
+    display: none !important;
+}
+
+li.activity:hover span.delete-activity {
+    display: inline;
 }

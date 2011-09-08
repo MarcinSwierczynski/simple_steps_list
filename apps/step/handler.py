@@ -16,13 +16,13 @@ class ActivityCreatorHandler(AnonymousBaseHandler):
         activity_form = ActivityForm(request.data)
         try:
             activity_form.save()
-            return rc.CREATED
+            return activity_form.instance
         except ValueError:
             return activity_form.errors
 
 
 class ActivityEditorHandler(AnonymousBaseHandler):
-    allowed_methods = ('PUT',)
+    allowed_methods = ('PUT', 'DELETE')
 
     def update(self, request, activity_id):
         activity = get_object_or_404(Activity, id=request.data['id'])
@@ -33,3 +33,8 @@ class ActivityEditorHandler(AnonymousBaseHandler):
             return activity_form.instance
         except ValueError:
             return activity_form.errors
+
+    def delete(self, request, activity_id):
+        activity = get_object_or_404(Activity, id=activity_id)
+        activity.delete()
+        return rc.DELETED

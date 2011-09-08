@@ -11,7 +11,14 @@
 </head>
 <body>
 
+{% include "step/activities.html" %}
 {% include "step/activity.html" %}
+{% include "about/about.html" %}
+
+<ul id="navigation">
+    <li><a href="#about">About</a></li>
+    <li><a href="#activities">List</a></li>
+</ul>
 
 {% block content %}{% endblock %}
 

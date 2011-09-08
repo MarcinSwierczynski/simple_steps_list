@@ -4,11 +4,13 @@ var ActivityView = Backbone.View.extend({
 
     events: {
         'dblclick div.activity-content': 'edit',
-        'keypress .activity-input': 'updateOnEnter'
+        'keypress .activity-input': 'updateOnEnter',
+        'click span.delete-activity': 'remove'
     },
 
     initialize: function() {
         this.model.bind('change', this.render, this);
+        this.model.bind('error', this.showValidationError, this);
     },
 
     render: function() {
@@ -33,8 +35,20 @@ var ActivityView = Backbone.View.extend({
     },
 
     close: function() {
-        this.model.save({name: this.input.val()});
-        $(this.el).removeClass("editing");
+        var isSaved = this.model.save({name: this.input.val()});
+        if (isSaved) {
+            $(this.el).removeClass("editing");
+            $(this.input).removeClass("error");
+        }
+    },
+
+    remove: function() {
+        this.model.destroy();
+        $(this.el).remove();
+    },
+
+    showValidationError: function(model, error) {
+        $(this.input).addClass("error");
     }
 
 });
