@@ -5,7 +5,8 @@ var ActivityView = Backbone.View.extend({
     events: {
         'dblclick div.activity-content': 'edit',
         'keypress .activity-input': 'updateOnEnter',
-        'click span.delete-activity': 'remove'
+        'click span.delete-activity': 'remove',
+        'click input.activity-done': 'done'
     },
 
     initialize: function() {
@@ -49,6 +50,10 @@ var ActivityView = Backbone.View.extend({
 
     showValidationError: function(model, error) {
         $(this.input).addClass("error");
+    },
+
+    done: function(e) {
+        console.log(e.target.id);
     }
 
 });

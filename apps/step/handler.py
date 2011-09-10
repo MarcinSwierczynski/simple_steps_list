@@ -1,24 +1,25 @@
+from django.core.exceptions import ValidationError
 from django.shortcuts import get_object_or_404
 from piston.handler import AnonymousBaseHandler
 from piston.utils import rc
 from models import Activity
-from step.forms import ActivityForm
 
 class ActivityCreatorHandler(AnonymousBaseHandler):
     allowed_methods = ('GET', 'POST')
-    fields = ('id', 'name')
+    fields = ('id', 'name', 'dates')
     model = Activity
 
     def read(self, request, *args, **kwargs):
         return Activity.objects.all()
 
     def create(self, request, *args, **kwargs):
-        activity_form = ActivityForm(request.data)
+        activity = Activity(name=request.data['name'])
         try:
-            activity_form.save()
-            return activity_form.instance
-        except ValueError:
-            return activity_form.errors
+            activity.full_clean()
+            activity.save()
+            return activity
+        except ValidationError, e:
+            return e.message_dict
 
 
 class ActivityEditorHandler(AnonymousBaseHandler):
@@ -26,13 +27,14 @@ class ActivityEditorHandler(AnonymousBaseHandler):
 
     def update(self, request, activity_id):
         activity = get_object_or_404(Activity, id=request.data['id'])
-        activity_form = ActivityForm(request.data, instance=activity)
+        activity.name = request.data['name']
 
         try:
-            activity_form.save()
-            return activity_form.instance
-        except ValueError:
-            return activity_form.errors
+            activity.full_clean()
+            activity.save()
+            return activity
+        except ValidationError, e:
+            return e.message_dict
 
     def delete(self, request, activity_id):
         activity = get_object_or_404(Activity, id=activity_id)
