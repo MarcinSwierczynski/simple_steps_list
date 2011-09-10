@@ -1,5 +1,5 @@
 var ActivityView = Backbone.View.extend({
-    tagName: "li",
+    tagName: "span",
     className: "activity",
 
     events: {

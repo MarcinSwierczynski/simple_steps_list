@@ -1,51 +1,71 @@
-ul {
-    list-style: none;
+#steps-table {
+    margin: 0.5em 12px;
+    padding: 0;
+    text-align: center;
+    width: auto;
 }
 
-li.activity {
-    border-bottom: 1px solid #CCCCCC;
-    cursor: move;
+.table-row {
+    margin: 0 auto;
+    padding: 0;
+    text-align: center;
+    width: 96%;
+    height: 50px;
+}
+
+.header {
     font-size: 24px;
-    padding: 15px 20px 15px 0;
-    position: relative;
+    padding: 0 15px;
 }
 
-li.activity input.activity-input {
+.activity-container {
+    float: left;
+    margin: 0;
+    padding: 0;
+    width: 35%;
+    text-align: left;
+}
+
+.date-left-container {
+    float: left;
+    margin: 0;
+    padding: 0;
+    width: 12%;
+}
+
+.activity {
+    font-size: 24px;
+    width: 250px;
+}
+
+.activity .activity-edit {
     display: none;
 }
 
-div.activity-content {
-    display: inline;
+.editing .activity-edit {
+    display: block;
 }
 
-li.editing input.activity-input {
+.editing .activity-edit input {
     border: 1px solid #999999;
-    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2) inset;
-    display: block;
-    font-family: inherit;
     font-size: 24px;
     line-height: 1.4em;
     outline: medium none;
     padding: 6px;
-    width: 466px;
 }
 
-li.activity input.error {
+.activity input.error {
     border: 2px solid #ff0000;
 }
 
-li.editing div.activity-content {
+.editing div.activity-content {
     display: none;
 }
 
-li.activity span.delete-activity {
+.activity span.delete-activity {
     display: none;
 }
 
-li.editing span.delete-activity {
-    display: none !important;
-}
-
-li.activity:hover span.delete-activity {
+.activity:hover span.delete-activity {
     display: inline;
 }

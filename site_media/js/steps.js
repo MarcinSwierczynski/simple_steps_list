@@ -53,7 +53,7 @@ $(function() {
     });
 
     window.AppView = Backbone.View.extend({
-        el: $('#steps-list'),
+        el: $('#steps-table'),
 
         events: {
             'keypress #new-step': 'createOnEnter'

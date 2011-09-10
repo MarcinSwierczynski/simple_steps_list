@@ -1,8 +1,21 @@
 {% load verbatim %}
 
 {% verbatim %}
-<script type="text/html" id="activity">
-    <div class="activity-content"><strong>Activity</strong>: {{name}}</div>
-    <input type="text" class="activity-input" /> <span class="delete-activity">Delete</span>
-</script>
+    <script type="text/html" id="activity">
+        <div class="table-row">
+            <div class="activity-content activity-container"><strong>{{ name }}</strong>
+                <span class="delete-activity">Delete</span>
+            </div>
+            <div class="activity-edit activity-container">
+                <input type="text" class="activity-input"/>
+            </div>
+
+            <div class="date-left-container"><input type="checkbox"/></div>
+            <div class="date-left-container"><input type="checkbox"/></div>
+            <div class="date-left-container"><input type="checkbox"/></div>
+            <div class="date-left-container"><input type="checkbox"/></div>
+            <div class="date-left-container"><input type="checkbox"/></div>
+
+        </div>
+    </script>
 {% endverbatim %}
