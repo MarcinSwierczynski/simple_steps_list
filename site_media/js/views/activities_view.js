@@ -30,7 +30,7 @@ var ActivitiesView = Backbone.View.extend({
     },
 
     render: function() {
-        $(this.el).html(ich.activities());
+        $(this.el).html(ich.activities({'dates':SimpleDates.chosenDates()}));
         this.addAll();
         return this;
     }
