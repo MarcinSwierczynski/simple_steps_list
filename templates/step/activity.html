@@ -20,8 +20,7 @@
 
             {{#displayedDatesInActivityContext}}
             <div class="date-left-container">
-                {{^isComplete}}<input type="checkbox" class="activity-done" id="{{ name }}-{{date}}" />{{/isComplete}}
-                {{#isComplete}}<input type="checkbox" class="activity-done" checked="checked" id="{{ name }}-{{date}}" />{{/isComplete}}
+                <input type="checkbox" class="activity-done" {{#isComplete}}checked="checked"{{/isComplete}} id="{{ name }}-{{date}}" />
             </div>
             {{/displayedDatesInActivityContext}}
 
