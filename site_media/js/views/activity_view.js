@@ -16,8 +16,7 @@ var ActivityView = Backbone.View.extend({
 
     render: function() {
         var activity = this.model.toJSON();
-        activity["displayedDates"] = SimpleDates.chosenDates();
-        activity["displayedDatesInActivityContext"] = SimpleDates.displayedDatesInActivityContext();
+        activity["displayedDatesInActivityContext"] = SimpleDates.displayedDatesInActivityContext(this.model.get("dates"));
 
         $(this.el).html(ich.activity(activity));
         this.setText();

@@ -18,11 +18,12 @@
                 <input type="text" class="activity-input"/>
             </div>
 
-            {{#displayedDates}}
+            {{#displayedDatesInActivityContext}}
             <div class="date-left-container">
-                <input type="checkbox" class="activity-done" id="{{ name }}-{{.}}" />
+                {{^isComplete}}<input type="checkbox" class="activity-done" id="{{ name }}-{{date}}" />{{/isComplete}}
+                {{#isComplete}}<input type="checkbox" class="activity-done" checked="checked" id="{{ name }}-{{date}}" />{{/isComplete}}
             </div>
-            {{/displayedDates}}
+            {{/displayedDatesInActivityContext}}
 
         </div>
     </script>

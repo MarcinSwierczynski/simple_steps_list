@@ -23,11 +23,17 @@ var SimpleDates = {
     },
 
     displayedDatesInActivityContext: function(activityCompleteDates) {
-        var datesInActivityContext = {};
+        var datesInActivityContext = [];
+        var displayedDates = this.chosenDates();
 
-        for (i=0; i<this.chosenDates.length; i++) {
-            var displayedDate = this.chosenDates()[i];
-            datesInActivityContext[displayedDate] = displayedDate in activityCompleteDates;
+        for (var i=0; i<this.chosenDates().length; i++) {
+            var displayedDate = displayedDates[i];
+            var activityCompleteness = {
+                date : displayedDate,
+                isComplete: jQuery.inArray(displayedDate, activityCompleteDates) > -1
+            };
+            datesInActivityContext.push(activityCompleteness);
         }
+        return datesInActivityContext;
     }
 };
