@@ -56,7 +56,18 @@ var ActivityView = Backbone.View.extend({
     },
 
     done: function(e) {
-        console.log(e.target.id);
+        var dateToMark = e.target.name;
+
+        var dateIndexInModel = jQuery.inArray(dateToMark, this.model.get("dates"));
+        var dateCurrentlyMarked = dateIndexInModel > -1;
+
+        if(dateCurrentlyMarked) {
+            this.model.get("dates").splice(dateIndexInModel, 1);
+        } else {
+            this.model.get("dates").push(dateToMark);
+        }
+
+        this.model.save();
     }
 
 });

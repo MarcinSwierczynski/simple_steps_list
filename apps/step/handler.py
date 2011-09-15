@@ -10,7 +10,7 @@ class ActivityCreatorHandler(AnonymousBaseHandler):
     model = Activity
 
     def read(self, request, *args, **kwargs):
-        return Activity.objects.all()
+        return Activity.objects.all().order_by('name')
 
     def create(self, request, *args, **kwargs):
         activity = Activity(name=request.data['name'])
@@ -28,6 +28,7 @@ class ActivityEditorHandler(AnonymousBaseHandler):
     def update(self, request, activity_id):
         activity = get_object_or_404(Activity, id=request.data['id'])
         activity.name = request.data['name']
+        activity.dates = request.data['dates']
 
         try:
             activity.full_clean()
